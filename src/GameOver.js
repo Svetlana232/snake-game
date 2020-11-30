@@ -1,5 +1,5 @@
 import React from "react";
-import './Styles.css';
+import Styles from './Styles.js';
 
 
 const GameOver = props => {
@@ -16,8 +16,7 @@ const GameOver = props => {
                     width: "20%",
                     transition: "all 0.3 ease",
                     textTransform: "uppercase",
-                    outline: 0
-                    // background: "#4caf50"
+                    outline: 0   
                   }}
               
             >
@@ -28,7 +27,7 @@ const GameOver = props => {
     );
 
 
-    if (props.isPoused) {
+    if (props.isPaused) {
         ui = (
             <div>
                 <h1> GAME PAUSED</h1>
@@ -37,7 +36,7 @@ const GameOver = props => {
             </div>
         );
     }
-    return <div style={styleMedia.scoreStyle}>{ui}</div>;
+    return <div style={Styles.gameareaFrameStyle}>{ui}</div>;
 } 
 
 export default GameOver
