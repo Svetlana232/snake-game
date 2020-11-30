@@ -1,8 +1,9 @@
 import React, { Fragment, Component } from "react";
 import Snake from "./Snake";
 import Food from "./Food";
-
+import GameArea from "./GameArea";
 import GameOver from "./GameOver";
+import Styles from "./Styles";
 
 
 
@@ -27,6 +28,8 @@ const initialState = {
     [0,0],
     [2,0],
   ],
+  showGameArea: null,
+  isGamePaused: false
   
 };
 
@@ -181,18 +184,37 @@ class SnakeGame extends Component {
 
       <div>
         <Fragment>
-          <div className="frame">
-            <Snake snakeDots={this.state.snakeDots} />
-            <Food dot={this.state.food} />
-          </div>
-
-          
+          <GameArea show={this.state.showGameArea}>
             <GameOver   
               score={this.state.snakeDots.length - 2}
               highestScore={this.props.highestScore || 0}
               name={this.props.name || "Player1"}
               clicked={this.onPlayAgainClicked}
             />  
+          </GameArea>
+
+           <GameArea show={this.state.showGameArea}>
+            <GameOver   
+              score={this.state.snakeDots.length - 2}
+              highestScore={this.props.highestScore || 0}
+              name={this.props.name || "Player1"}
+              clicked={this.onPlayAgainClicked}
+            />  
+          </GameArea>
+
+
+          <div style={{flexDirection: "row"}}>
+            <div style={Styles.scoreStyle}>
+              {" "}
+              Score : {this.state.snakeDots.length - 2}
+            </div>
+          </div>
+
+          <div className="frame">
+            <Snake snakeDots={this.state.snakeDots} />
+            <Food dot={this.state.food} />
+          </div>
+
           
 
         </Fragment>
