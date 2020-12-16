@@ -6,5 +6,8 @@ npx create-react-app my-app
 cd my-app
 npm start
 
+### [Illustration for the project] 
+(https://github.com/Svetlana232/snake-game/blob/main/image/game.png)
+
 
 
